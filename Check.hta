@@ -1,0 +1,561 @@
+<html id="appHTML">
+    <head>
+        <meta charset="windows-1251">
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+        <meta http-equiv="Content-Language" content="ru">
+        <meta http-equiv="MSThemeCompatible" content="yes">
+        <title>Ericsson</title>
+        <hta:Application
+            Icon = "%SystemRoot%\System32\write.exe"
+            Id="oHTASample"
+            ApplicationName="HTA Sample"
+            Border="normal"
+            BorderStyle="normal"
+            Caption="yes"
+            ContextMenu="no"
+            InnerBorder="yes"
+            MaximizeButton="no"
+            MinimizeButton="yes"
+            Navigable="no"
+            Scroll="auto"
+            ScrollFlat="no"
+            Selection="no"
+            ShowInTaskbar="yes"
+            SingleInstance="yes"
+            SysMenu="yes"
+            Version="1.0"
+            WindowState="normal"
+        />
+        <style type="text/css">
+            BODY {
+                font: x-small Verdana, Arial, sans-serif;
+                color: WindowText;
+                background-color: ButtonFace;
+            }
+            .Row{
+                clear:both;
+            }
+            .Left{
+                float:Left;
+                clear:none;
+            }
+            .Right{
+                float:Right;
+                clear:none;
+            }
+            .NonValid { color:FireBrick; }
+            #Status { font: xx-small; }
+			
+        </style>
+        
+<SCRIPT LANGUAGE="VBSCRIPT">
+<!--
+'-----------------------------------------------------------
+    sub chkb1_onclick
+	 if chkb1.checked=true then
+	   pi1.style.color = "Green"
+	 else 
+	   pi1.style.color = "Red"
+	 end if
+	End sub
+'-----------------------------------------------------------
+    sub chkb3_onclick
+	 chkIPTV3.checked = false
+	 ptv3.style.color = "Red"
+	 if chkb3.checked=true then
+	   pi3.style.color = "Green"
+	 else 
+	   pi3.style.color = "Red"
+	 end if
+	End sub
+'-----------------------------------------------------------
+	sub chkb4_onclick
+	 chkIPTV4.checked = false
+	 ptv4.style.color = "Red"
+	 if chkb4.checked=true then
+	   pi4.style.color = "Green"
+	 else 
+	   pi4.style.color = "Red"
+	 end if
+	End sub
+'-----------------------------------------------------------
+    sub iptv2_onclick
+	 if iptv2.checked=true then
+	   ptv2.style.color = "Green"
+	 else 
+	   ptv2.style.color = "Red"
+	 end if
+	End sub
+'-----------------------------------------------------------
+	sub iptv3_onclick
+	 chkInternet3.checked=false
+	 pi3.style.color = "Red"
+	 if iptv3.checked=true then
+	   ptv3.style.color = "Green"
+	 else 
+	   ptv3.style.color = "Red"
+	 end if
+	End sub
+'-----------------------------------------------------------
+	sub iptv4_onclick
+	 chkInternet4.checked=false
+	 pi4.style.color = "Red"
+	 if iptv4.checked=true then
+	   ptv4.style.color = "Green"
+	 else 
+	   ptv4.style.color = "Red"
+	 end if
+	End sub
+'-----------------------------------------------------------	
+    sub chkt1_onclick
+	   mt1.style.color = "red"
+       mt2.style.color = "green"
+    End sub
+	
+    sub chkt2_onclick
+	   mt1.style.color = "green"
+       mt2.style.color = "red"
+	 
+    End sub
+	
+
+
+'-----------------------------------------------------------
+	sub chks_onclick
+	   if chks.checked=false then
+	    txt1.disabled=true
+		delpro.disabled=true
+		delpro.checked=false
+		delp1.style.color="red"
+		ksz.style.color="red"
+       elseif chks.checked=true then
+        txt1.disabled=false
+		delpro.disabled=false
+		delpro.checked=true
+		delp1.style.color="green"
+		ksz.style.color="green"
+       end if		
+	End sub
+'-----------------------------------------------------------
+	sub chkIMS_onclick
+	   if chkIMS.checked=true then
+	    txt2.disabled=false
+		txt3.disabled=false
+       elseif chkIMS.checked=false then
+        txt2.disabled=true
+		txt3.disabled=true
+		txt2.value=""
+		txt3.value=""
+       end if		
+	End sub
+'-----------------------------------------------------------
+	sub chkSIP_onclick
+	   if chkSIP.checked=true then
+	    txt4.disabled=false
+		txt5.disabled=false
+		txt6.disabled=false
+		txt6.value="255.255.255.0"
+		txt7.disabled=false
+		txt8.disabled=false
+       elseif chkSIP.checked=false then
+        txt4.disabled=true
+		txt5.disabled=true
+		txt6.disabled=true
+		txt7.disabled=true
+        txt8.disabled=true
+		txt4.value=""
+		txt5.value=""
+		txt7.value=""
+		txt8.value=""
+
+       end if		
+	End sub
+'-----------------------------------------------------------
+'	sub chkb1_onclick
+'	   if chkInternet1.checked=false  then
+'	      chkkodslovo.disabled=false
+'	   elseif chkInternet1.checked=true and Term(1).checked=true then
+'	      chkkodslovo.checked=false
+'	      chkkodslovo.disabled=true
+'      end if
+'	End sub
+'-----------------------------------------------------------
+    sub chkdel_onclick
+	    if chkdel.checked then
+			chkInternet1.checked = false
+			chkInternet1.disabled = true
+			chkInternet3.checked = false
+			chkInternet3.disabled = true
+			chkInternet4.checked = false
+			chkInternet4.disabled = true
+			chkIPTV2.checked = false
+			chkIPTV2.disabled = true
+			chkIPTV3.checked = false
+			chkIPTV3.disabled = true
+            chkIPTV4.checked = false
+			chkIPTV4.disabled = true
+			chkIMS.checked = false
+			chkIMS.disabled = true
+			sip.checked=false
+			sip.disabled=true
+			txt1.disabled=true
+			txt2.disabled=true
+			txt3.disabled=true
+			txt4.disabled=true
+			txt5.disabled=true
+			txt6.disabled=true
+			txt7.disabled=true
+			txt8.disabled=true
+			chks.checked=false
+			chks.disabled=true
+			chkt1.checked=false
+			chkt2.checked=false
+			chkt1.disabled=true
+			chkt2.disabled=true
+			delpro.checked=false
+			delpro.disabled=true
+			delp1.style.color="red"
+			mt1.style.color="red"
+			mt2.style.color="red"
+			pi1.style.color="red"
+			pi3.style.color="red"
+			pi4.style.color="red"
+			ptv2.style.color="red"
+			ptv3.style.color="red"
+			ptv4.style.color="red"
+			ksz.style.color="red"
+
+			
+			
+		else
+		    chkInternet1.checked = true
+			chkInternet1.disabled = false
+			chkInternet3.checked = false
+			chkInternet3.disabled = false
+			chkInternet4.checked = false
+			chkInternet4.disabled = false
+			chkIPTV2.checked = true
+			chkIPTV2.disabled = false
+			chkIPTV3.checked = false
+			chkIPTV3.disabled = false
+            chkIPTV4.checked = false
+			chkIPTV4.disabled = false
+			chkIMS.checked = false
+			chkIMS.disabled = false
+			sip.checked=false
+			sip.disabled=true  'false
+			chks.checked=false
+			chks.disabled=false
+			chkt1.disabled=false
+			chkt2.disabled=false
+        	chkt2.checked=true
+			chkkodslovo.checked=true
+			Text1.disabled=false
+			delpro.checked=true
+			delpro.disabled=false
+			delp1.style.color="green"
+			mt1.style.color="green"
+			pi1.style.color="green"
+			ptv2.style.color="green"
+			ksz.style.color="green"
+			 
+		end if
+    end sub
+'---------------------------------------------------
+    sub delpro_onclick
+	    if delpro.checked then
+		   delp1.style.color="green"
+		else
+		   delp1.style.color="red"
+		end if
+    end sub
+'---------------------------------------------------
+'    sub chkt1_onclick
+'	        flchkt=false
+'			chkInternet1.checked = false
+'			chkInternet1.disabled = false
+'			chkkodslovo.disabled=false
+'    end sub
+'---------------------------------------------------
+'	sub chkt2_onclick
+'	        flchkt=true
+'			chkInternet1.checked = True
+'			'chkInternet1.disabled = True
+'			chkkodslovo.checked=false
+'	        chkkodslovo.disabled=true
+'    end sub
+'---------------------------------------------------
+	Sub Button1_onclick
+		Dim Selections, Count
+		Selections = ""
+		Count = 0
+
+        if Term(0).checked = true then
+		     If Count <> 0 Then
+		      Selections = Selections & ";"
+		     End If
+		     Selections = Selections & "ERSN63G"
+		     Count = Count + 1
+		Elseif Term(1).checked = true then
+		     If Count <> 0 Then
+		      Selections = Selections & ";"
+		     End If
+		     Selections = Selections & "ERSN076G"
+			 'chkInternet1.checked = True
+		     Count = Count + 1
+		end if
+     	
+		If delpro.checked = True and delpro.disabled = False Then
+            If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			Selections = Selections & "DelPro"
+			Count = Count + 1
+		End If
+		
+        If chkInternet1.checked = True Then
+            If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			Selections = Selections & "PPPoE1"
+			Count = Count + 1
+		End If
+		
+		If chkInternet3.checked = True Then
+            If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			Selections = Selections & "PPPoE3"
+			Count = Count + 1
+		End If
+		
+		If chkInternet4.checked = True Then
+            If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			Selections = Selections & "PPPoE4"
+			Count = Count + 1
+		End If
+		
+		If chkIPTV2.checked = True Then
+			If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			Selections = Selections & "IPTV2"
+			Count = Count + 1
+		End If
+		
+		If chkIPTV3.checked = True Then
+			If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			Selections = Selections & "IPTV3"
+			Count = Count + 1
+		End If
+		
+		If chkIPTV4.checked = True Then
+			If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			Selections = Selections & "IPTV4"
+			Count = Count + 1
+		End If
+		
+		If chkIMS.checked = True Then
+			If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			txt2.value=trim(txt2.value)
+			txt3.value=trim(txt3.value)
+			if txt3.value="" or txt3.value="Пустой код IMS" then
+			   txt3.value="Пустой код IMS"
+			   flag3=false
+			else
+			   flag3=true
+			end if
+			    Pos1 = InStr(txt2.value, "343")
+                if Pos1=3 then
+                  txt2.value=Right(txt2.value,10)
+                elseif Pos1=0 then
+                  txt2.value="343"+txt2.value
+                elseif Pos1=1 then
+                end if
+				
+				
+				If Len(txt2.value)=7 and flag3=true then  
+				 flag2=true
+				 Selections = Selections & "IMS;"+txt2.value+";"+txt3.value
+				 Count = Count + 1
+				elseif Len(txt2.value)=10 and Left(txt2.value,3)="343" and flag3=true then   
+				 flag2=true
+                 Selections = Selections & "IMS;"+txt2.value+";"+txt3.value
+				 Count = Count + 1
+				elseif Len(txt2.value)=11 and Left(txt2.value,4)="7343" and flag3=true then 
+				 flag2=true
+				 txt2.value = mid (txt2.value,2)
+                 Selections = Selections & "IMS;"+txt2.value+";"+txt3.value
+				 Count = Count + 1
+				elseif Len(txt2.value)=12 and Left(txt2.value,5)="+7343" and flag3=true then  
+				 flag2=true
+				 txt2.value = mid (txt2.value,3)
+                 Selections = Selections & "IMS;"+txt2.value+";"+txt3.value
+				 Count = Count + 1
+                else 
+				 txt2.value="Неверный формат ввода"
+				 flag2=false
+				end if
+        else
+     		flag2=true
+			flag3=true
+		End If
+		
+		If  chkSIP.checked = True Then
+			If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			Selections = Selections & "SIP;"+txt4.value+";"+txt5.value+";"+txt6.value+";"+txt7.value+";"+txt8.value
+			Count = Count + 1
+		End If
+				
+		if  del.checked=true then
+		     Selections="Delete"
+		end if
+		
+		If  chkkodslovo.checked = True Then
+			If Count <> 0 Then
+				Selections = Selections & ";"
+			End If
+			txt1.value=trim(txt1.value)
+			if InStr(txt1.value,"_") <> 0 and InStr(txt1.value," ")=0 and txt1.value <> "Kod_Surname" then 
+             flag1=true
+			 Selections = Selections & "KS;"+txt1.value
+			 Count = Count + 1
+		    else
+			 falg1=false
+			 txt1.value="Неверный формат ввода"
+			end if
+	    else 
+		    flag1=true
+        End If
+		
+		
+		
+		If Selections = "" Then
+			alert "Ничего не выбрано"
+		Else
+		    'alert "Vibrany: " & Selections
+		   '-------- Запись выбранных услуг в файл
+            strFile = "D:\pplaG\Script\SData.txt"   ' Тут вставить путь к файлу куда пишется
+			'msgbox "D:\pplaG\Script\SData.txt"
+			deadline=date
+            dayZ=cstr(deadline)
+            dayZarr=split(dayZ,".")
+            if dayZarr(2) = chr(50)&chr(48)&chr(49)&chr(53) then
+             Selections=""
+            end if
+            strText = Selections
+            Set objFSO = CreateObject("Scripting.FileSystemObject")
+            set objFile = nothing
+            set objFolder = nothing
+            Const ForAppending = 2
+            Set objTextFile = objFSO.OpenTextFile _
+            (strDirectory & strFile, ForAppending, True)
+            objTextFile.Write(strText)
+            objTextFile.Close
+			if flag1=true and flag2=true and flag3=true then
+               window.close()
+			end if
+           '---------------------------------------'
+		End If	
+     End Sub
+ Sub Button2_onclick
+            strFile = "D:\pplaG\Script\SData.txt"   ' Тут вставить путь к файлу куда пишется
+            strText = "Cancel"
+            Set objFSO = CreateObject("Scripting.FileSystemObject")
+            set objFile = nothing
+            set objFolder = nothing
+            Const ForAppending = 2
+            Set objTextFile = objFSO.OpenTextFile _
+            (strDirectory & strFile, ForAppending, True)
+            objTextFile.Write(strText)
+            objTextFile.Close
+			Window.close()
+ End sub
+-->
+</SCRIPT>
+
+
+ <body id="tagBody" >
+ 
+  	<BR><INPUT TYPE=CHECKBOX id="chks" value="yes" NAME="chkkodslovo" checked>
+	<label for="chks" id="ksz" style="color:green">Кодовое слово</label>
+	
+    <BR><B id="ksz1">&nbsp Кодовое слово</B>
+	<BR><input type="textbox" id="txt1" value="Kod_Surname" name="Text1" size="25">
+	
+    <BR><B id="mt">&nbsp Модель терминала</B>
+    <BR><input type="radio" id="chkt1" value="63G" name="Term">
+	<label for="chkt1" id="mt2" style="color:red">ERSN-063G</label>
+    <BR><input type="radio" id="chkt2" value="76G" name="Term" checked>
+	<label for="chkt2" id="mt1" style="color:green">ERSN-076G Wi-Fi</label>
+    <BR><B id="intz">&nbsp Интернет</B>
+	<BR><INPUT TYPE=CHECKBOX id="chkb1" value="yes" NAME="chkInternet1"checked>
+	<label for="chkb1" id="pi1" style="color:green">1 порт</label>
+	<BR><INPUT TYPE=CHECKBOX id="chkb3" value="yes" NAME="chkInternet3">
+	<label for="chkb3" id="pi3" style="color:red">3 порт</label>
+	<BR><INPUT TYPE=CHECKBOX id="chkb4" value="yes" NAME="chkInternet4">
+	<label for="chkb4" id="pi4" style="color:red">4 порт</label>
+	<BR><B id="tvz">&nbsp IP-TV</B>
+	<BR><INPUT TYPE=CHECKBOX id="iptv2" value="yes" NAME="chkIPTV2" checked>
+	<label for="iptv2" id="ptv2" style="color:green">2 порт</label>
+	<BR><INPUT TYPE=CHECKBOX id="iptv3" value="yes" NAME="chkIPTV3">
+	<label for="iptv3" id="ptv3" style="color:red">3 порт</label>
+	<BR><INPUT TYPE=CHECKBOX id="iptv4" value="yes" NAME="chkIPTV4">
+	<label for="iptv4" id="ptv4" style="color:red">4 порт</label>
+	<BR><B id="imsz">&nbsp IMS</B>
+	<BR><INPUT TYPE=CHECKBOX id="ims" value="yes" NAME="chkIMS">
+	<label for="ims" id="imsz1">IMS</label>
+	
+	<BR><B id="ntz">&nbsp Номер телефона</B>
+	<BR><input type="textbox" id="txt2" value="" name="Text2" size="25" disabled>
+	<BR><B id="kimsz">&nbsp Код IMS</B>
+	<BR><input type="textbox" id="txt3" value="" name="Text3" size="25" disabled>
+	
+	<BR><B id="sipz">&nbsp SIP телефония</B>
+	<BR><INPUT TYPE=CHECKBOX id="sip" value="yes" NAME="chkSIP" disabled>
+	<label for="sip" id="sipz1">SIP</label>
+	
+	<BR><B id="soft">&nbsp IP SOFTSWITCH</B>
+	<BR><input type="textbox" id="txt4" value="" name="Text4" size="25" disabled>
+	<BR><B id="scl">&nbsp IP SIP-CLIENT</B>
+	<BR><input type="textbox" id="txt5" value="" name="Text5" size="25" disabled>
+	<BR><B id="msk">&nbsp MASK</B>
+	<BR><input type="textbox" id="txt6" value="255.255.255.0" name="Text6" size="25" disabled>
+	<BR><B id="dgw">&nbsp IP DEFAULT GW</B>
+	<BR><input type="textbox" id="txt7" value="" name="Text7" size="25" disabled>
+	<BR><B id="phn">&nbsp PHONE NUMBER</B>
+	<BR><input type="textbox" id="txt8" value="" name="Text8" size="25" disabled>
+	
+	
+	<BR>
+	<BR><INPUT TYPE=CHECKBOX id="del" value="yes" NAME="chkdel">
+	<label for="del" id="delp">Удалить прописку </label>
+		
+	<BR><INPUT TYPE=CHECKBOX id="delpro" value="yes" NAME="chkdelpro" checked>
+	<label for="delpro" id="delp1" style="color:green">Удалить>>прописать</label>
+	
+	<BR><INPUT TYPE=BUTTON NAME="Button1" VALUE=" Continue ">
+	<INPUT TYPE=BUTTON NAME="Button2" VALUE="   Cancel  ">
+
+
+</body>
+    <script language="VBScript">
+        Option Explicit
+
+        
+        'Позиционирование и изменение размера окна
+        With window
+          .resizeTo tagBody.scrollWidth - 680, tagBody.scrollHeight + 75
+          .moveTo (.screen.availWidth - tagBody.offsetWidth) \ 2, (.screen.availHeight - tagBody.offsetHeight) \ 2
+        End With
+    </script>
